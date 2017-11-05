@@ -1,0 +1,63 @@
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/registration.css">
+        <!-- Bootstrap core CSS-->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+        <script type="text/javascript" src="hms.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.min.js"></script>
+
+    </head>
+    <body style="background-color: #f4f7f8;">
+
+      <form action="index.html" method="post">
+      
+        <h1>Register</h1>
+        
+        <fieldset>
+          <legend><span class="number">1</span>Enter Team Details</legend>
+         <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <input class="form-control" id="teamName" type="text"  placeholder="Enter Team Name">
+          </div>
+          <div class="form-group">
+            <label for="projectObjective">Project Objective</label>
+            <input class="form-control" id="projectObjective" type="text"  placeholder="What is your Project Objective?">
+          </div>
+          <div class="form-group">
+            <label for="description">Project Description</label>
+            <textarea id="description" name="description"  placeholder="Describe your project in 100 words."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="teamLeadName">Team Lead*</label>
+            <input class="form-control" id="teamLeadName" type="text"  placeholder="Team Lead Name">
+          </div>
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Team Members</legend>
+            
+          
+              <!-- <div class="col-md-6">
+                <label for="fName">First name</label>
+                <input class="form-control" id="fName1" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+              </div> -->
+              
+            
+            <div id='TextBoxesGroup'>
+  <div id="TextBoxDiv1">
+    <!-- <label>Textbox #1 : </label><input type='textbox' id='textbox1' > -->
+    
+  </div>
+</div>
+            <input type="button" class="btn btn-primary btn-block" style="width: 12%; margin-left: 430px; width: 20%;" id="addButton" value="Add Member" onclick="addMember()">
+        </fieldset>
+        <button type="submit">Sign Up</button>
+      </form>
+      
+    </body>
+</html>
