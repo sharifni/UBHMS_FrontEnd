@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // window.onload=function () {
 // 	alert("HELLLO");
 // 	// body...
@@ -52,76 +53,45 @@
 // });
 // }
 // localStorage.setItem('session', JSON.stringify(a));
+=======
+>>>>>>> v1
 
-var a = [];
+
+    var counter = 1;
 function addMember(){
 
-$("#memberForm").appendTo(".memberList");
-  //  alert("YOOOOOOOO");
-    var fName= $("#fName").val();
-    var lName= $("#lName").val();
-    var universityName= $("#universityName").val();
-    var year= $("#year").val();
-    var major= $("#major").val();
-	var email= $("#email").val();
-    
-    // var json = {fName:fName, lName:lName, universityName:universityName, year:year, major:major, email:email};
-    // var receiveddata = JSON.stringify(json);
-    // if(localStorage.getItem('members')){
-    // 		a = localStorage.getItem('members');
-    // 		a.push(receiveddata);
-    //        // alert(a);
-    // }    
-    // else{
-    // 	a=[json]
-    // }
-    // localStorage.setItem('members', a);
-
-    
-
-    // var array = jQuery("#memberForm").val().serializeArray();
-    // var json = {};
-    
-    // jQuery.each(array, function() {
-    //     json[this.name] = this.value || '';
-    // });
-    //console.log(JSON.stringify(json));
-    
-   
-
-
-    //return json;
-   
-}
-
-
-function teamUpdate(){
-
-var memberData = localStorage.getItem('members');
-
- $.ajax
-  ({
-    type: "POST",
-    url: "http://54.200.178.6:8889/team/update",
-    dataType: 'json',
-    data:memberData,
-    // userName:name,
-    // password:password,
-    //async: false,
-   //data: {userJson},
-    // data: '{"username": "' + username + '", "password" : "' + password + '"}',
-    success: function (response){
-    	//var abc = JSON.stringify(response);
-    	// window.location.href = "team_registration.html";	
-    	// console.log("Resopnse"+status);
-    alert('Logged In'); 
-    }, 
-    
-    error: function(xhr, status, error){
-    	console.log(error);
-    	$('.loginError').show();
-    return false;
+      if(counter>5){
+            alert("Only 5 members are allowed to Register");
+            return false;
     }
-});
+
+    var newTextBoxDiv = $(document.createElement('div'))
+         .attr("id", 'TextBoxDiv' + counter);
+
+    newTextBoxDiv.after().html('<label>Member '+ counter + ' : </label>' +
+          '<input type="text" name="textbox' + counter +
+          '" id="textbox' + counter + '" value="" >');
+
+    newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+    counter++;
+     
+
+    
 
 }
+
+function removeMember(){
+
+    if(counter==1){
+          alert("Atleast One Member Required");
+          return false;
+       }
+
+    counter--;
+
+        $("#TextBoxDiv" + counter).remove();
+
+    }
+
