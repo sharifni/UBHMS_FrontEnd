@@ -16,6 +16,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
   <!-- Javascript to use functions and perform api calls -->
   <script type="text/javascript" src="hms.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
 </head>
 
 <body class="bg-dark" style="background-image: url(https://doxhze3l6s7v9.cloudfront.net/app/static/images/login-4-high-prog.jpg);">
@@ -47,7 +48,7 @@
             </div>
           </div>
           <input type="button" class="btn btn-primary btn-block" id="userLogin_Button" value="Login" onclick ="checkLogin()"/>
-          <p class="loginError" style="display:none;">Login Failed</p>
+          <p class="loginError" id='loginErrMsgId' style="display:none;">Login Failed</p>
 
         </form>
         <!-- <div class="text-center">
