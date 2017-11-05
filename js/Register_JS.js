@@ -33,7 +33,7 @@ var projDesc="NA";
 var teamLead="";
 var softwaresUsed=new Array();
 var hardwaresUsed=new Array();
-var nextPageUrl="login.html";
+var nextPageUrl="registrationSuccess.html";
 function register(){
     var formElements = document.forms[formId].getElementsByTagName("input");
     var element;
@@ -70,7 +70,7 @@ function register(){
             phoneArr[phoneArr.length] = element.value;
         else if(id.indexOf(emailString)>=0)
             emailArr[emailArr.length] = element.value;
-        else if(id.indexOf(teamLeadString)>=0)
+        if(id.indexOf(teamLeadString)>=0)
             teamLead = element.value;
         if(id.indexOf(hwString)>=0)
             hardwaresUsed = element.value.split(",");
@@ -107,7 +107,6 @@ function prepareRegisterJsonObject(){
     callServerUsingPost(url,jsonTeam);
 }
 function processRegistration(response){
-    alert(response.status);
     if(response.status==200){
         window.open(nextPageUrl,"_self");
     }
