@@ -1,18 +1,21 @@
-var formId="registerForm";
+var formId="registerFormId";
 
-var userNameString="test";
-var firstNameString="test";
+var userNameString="userName";
+var firstNameString="textbox";
 var lastNameString="test";
-var pwdString="test";
-var teamNameString="test";
-var projObjString="test";
-var projDescString="test";
+var pwdString="password";
+var teamNameString="teamName";
+var projObjString="projectObjective";
+var projDescString="description";
+var teamLeadString="teamLeadName";
 var univString = "";
 var majorString = "";
 var yearString = "";
 var degreeString = "";
 var phoneString = "";
 var emailString = "";
+var hwString="hardwareId";
+var swString="softwareId";
 
 var firstNameArr = new Array();
 var lastNameArr = new Array();
@@ -27,7 +30,10 @@ var teamName = "vijay_hacking";
 var userPassword= "vijay_pwd";
 var projObj="To develop a hacking website";
 var projDesc="NA";
-
+var teamLead="";
+var softwaresUsed=new Array();
+var hardwaresUsed=new Array();
+var nextPageUrl="login.html";
 function register(){
     var formElements = document.forms[formId].getElementsByTagName("input");
     var element;
@@ -36,14 +42,16 @@ function register(){
     for(var i=0;i<formElements.length;i++){
         element=formElements[i];
         id=element.id;
-        if(id.indexOf(userNameString)>=0)
+        // alert("ID : "+id);
+        if(id.indexOf(userNameString)>=0) {
             userName = element.value;
+        }
         else if(id.indexOf(firstNameString)>=0)
             firstNameArr[firstNameArr.length] = element.value;
         else if(id.indexOf(lastNameString)>=0)
             lastNameArr[lastNameArr.length] = element.value;
         else if(id.indexOf(pwdString)>=0)
-            userPassword = element.value();
+            userPassword = element.value;
         else if(id.indexOf(teamNameString)>=0)
             teamName = element.value;
         else if(id.indexOf(projObjString)>=0)
@@ -62,26 +70,45 @@ function register(){
             phoneArr[phoneArr.length] = element.value;
         else if(id.indexOf(emailString)>=0)
             emailArr[emailArr.length] = element.value;
+        else if(id.indexOf(teamLeadString)>=0)
+            teamLead = element.value;
+        if(id.indexOf(hwString)>=0)
+            hardwaresUsed = element.value.split(",");
+        if(id.indexOf(swString)>=0) {
+            softwaresUsed = element.value.split(",");
+        }
     }
     prepareRegisterJsonObject();
 }
 
 function prepareRegisterJsonObject(){
-    console.log("Preparing JSON object");
     var team = {};
     var teamMembersArr = new Array();
-    var teamMembers = {}
-    teamMembers.fName="Sourabh";
-    teamMembers.lName="Bhagat";
-    teamMembersArr[0]=teamMembers;
-    // var team={};
+    var teamMembers = {};
+    team.teamLeadName=teamLead;
     team.userName=userName;
+    team.softwareOrProgrammingLanguageUsed=softwaresUsed;
+    team.hardwareUsed=hardwaresUsed;
     team.isAdmin="false";
     team.teamName=teamName;
     team.projectObjective=projObj;
     team.description=projDesc;
+
+    team.password=userPassword;
+    team.teamLeadName=teamLead;
+    for(var i=0;i<firstNameArr.length;i++){
+        teamMembers.fName=firstNameArr[i];
+        teamMembersArr[teamMembersArr.length]=teamMembers;
+    }
     team.teamMembers=teamMembersArr;
+
     var jsonTeam = JSON.stringify(team);
     var url= "http://54.200.178.6:8889/team/update";
     callServerUsingPost(url,jsonTeam);
+}
+function processRegistration(response){
+    alert(response.status);
+    if(response.status==200){
+        window.open(nextPageUrl,"_self");
+    }
 }

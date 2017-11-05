@@ -9,12 +9,14 @@
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
         <script type="text/javascript" src="hms.js"></script>
+        <script type="text/javascript" src="js/HelperFile.js"></script>
+      <script type="text/javascript" src="js/Register_JS.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     </head>
     <body style="background-color: #f4f7f8;">
 
-      <form action="index.html" method="post">
+      <form id="registerFormId">
       
         <h1>Register</h1>
         
@@ -38,7 +40,7 @@
           </div>
           <div class="form-group">
             <label for="description">Project Description</label>
-            <textarea class="form-control" id="description" name="description"  placeholder="Describe your project."></textarea>
+            <input type="text" class="form-control" id="description" name="description"  placeholder="Describe your project."></input>
           </div>
           <div class="form-group">
             <label for="teamLeadName">Team Lead</label>
@@ -49,19 +51,14 @@
         <fieldset>
           <legend><span class="number">2</span>Team Members</legend>
             
-          
-              <!-- <div class="col-md-6">
-                <label for="fName">First name</label>
-                <input class="form-control" id="fName1" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
-              </div> -->
+
               
             
             <div id='TextBoxesGroup'>
-  <div id="TextBoxDiv1">
-    <!-- <label>Textbox #1 : </label><input type='textbox' id='textbox1' > -->
+            <div id="TextBoxDiv1">
     
-  </div>
-</div>
+            </div>
+            </div>
             <div>
             <div class="form-row">
               <div class="col-md-6">
@@ -77,14 +74,14 @@
         </fieldset>
         <legend><span class="number">3</span>Technologies</legend>
         <div class="form-group">
-            <label for="software">Software/Programming Languages </label>
-            <input class="form-control" id="software" type="text"  placeholder="Software">
+            <label for="softwareId">Software/Programming Languages </label>
+            <input class="form-control" id="softwareId" type="text"  placeholder="Software">
           </div>
           <div class="form-group">
-            <label for="hardware">Hardware</label>
-            <input class="form-control" id="hardware" type="text"  placeholder="Hardware">
+            <label for="hardwareId">Hardware</label>
+            <input class="form-control" id="hardwareId" type="text"  placeholder="Hardware">
           </div>
-        <button type="submit">Sign Up</button>
+          <input type="button" class="btn btn-primary btn-block" id="userLogin_Button" value="Register" onclick ="register()"/>
       </form>
       
     </body>
