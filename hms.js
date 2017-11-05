@@ -4,7 +4,7 @@
 function addMember(){
 
       if(counter>5){
-            alert("Only 10 textboxes allow");
+            alert("Only 5 members are allowed to Register");
             return false;
     }
 
@@ -24,4 +24,17 @@ function addMember(){
     
 
 }
-    
+
+function removeMember(){
+
+    if(counter==1){
+          alert("Atleast One Member Required");
+          return false;
+       }
+
+    counter--;
+
+        $("#TextBoxDiv" + counter).remove();
+
+    }
+

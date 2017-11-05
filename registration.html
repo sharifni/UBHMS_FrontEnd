@@ -2,14 +2,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up Form</title>
-        <link rel="stylesheet" href="css/normalize.css">
+        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/registration.css">
         <!-- Bootstrap core CSS-->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
         <script type="text/javascript" src="hms.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     </head>
     <body style="background-color: #f4f7f8;">
@@ -19,10 +19,18 @@
         <h1>Register</h1>
         
         <fieldset>
-          <legend><span class="number">1</span>Enter Team Details</legend>
+          <legend><span class="number">1</span>Team Details</legend>
+          <div class="form-group">
+            <label for="userName">User Name</label>
+            <input class="form-control" id="userName" type="text"  placeholder="User Name">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password"  placeholder="Password">
+          </div>
          <div class="form-group">
             <label for="teamName">Team Name</label>
-            <input class="form-control" id="teamName" type="text"  placeholder="Enter Team Name">
+            <input class="form-control" id="teamName" type="text"  placeholder="Team Name">
           </div>
           <div class="form-group">
             <label for="projectObjective">Project Objective</label>
@@ -30,10 +38,10 @@
           </div>
           <div class="form-group">
             <label for="description">Project Description</label>
-            <textarea id="description" name="description"  placeholder="Describe your project in 100 words."></textarea>
+            <textarea class="form-control" id="description" name="description"  placeholder="Describe your project."></textarea>
           </div>
           <div class="form-group">
-            <label for="teamLeadName">Team Lead*</label>
+            <label for="teamLeadName">Team Lead</label>
             <input class="form-control" id="teamLeadName" type="text"  placeholder="Team Lead Name">
           </div>
         </fieldset>
@@ -54,8 +62,28 @@
     
   </div>
 </div>
-            <input type="button" class="btn btn-primary btn-block" style="width: 12%; margin-left: 430px; width: 20%;" id="addButton" value="Add Member" onclick="addMember()">
+            <div>
+            <div class="form-row">
+              <div class="col-md-6">
+              <input type="button" class="btn btn-primary btn-block" style="margin-bottom: 15px;width: 35%;" id="addButton" value="Add" onclick="addMember()">
+            
+                </div>
+              <div class="col-md-6">
+              <input type='button' class="btn btn-primary btn-block" style="margin-bottom: 15px;width: 80px ; margin-left: -143px;" value="Remove" id='removeButton' onclick="removeMember()">
+              </div>
+            </div>
+            </div>
+
         </fieldset>
+        <legend><span class="number">3</span>Technologies</legend>
+        <div class="form-group">
+            <label for="software">Software/Programming Languages </label>
+            <input class="form-control" id="software" type="text"  placeholder="Software">
+          </div>
+          <div class="form-group">
+            <label for="hardware">Hardware</label>
+            <input class="form-control" id="hardware" type="text"  placeholder="Hardware">
+          </div>
         <button type="submit">Sign Up</button>
       </form>
       
