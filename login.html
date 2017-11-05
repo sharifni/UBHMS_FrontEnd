@@ -14,25 +14,31 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- Javascript to use functions and perform api calls -->
+  <script type="text/javascript" src="hms.js"></script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" style="background-image: url(https://doxhze3l6s7v9.cloudfront.net/app/static/images/login-4-high-prog.jpg);">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+      <div class="card-header" style="background-color: lightgray;
+    font-weight: 600">Login</div>
       <div class="card-body">
         <form>
           <div class="form-group">
-            <label for="userEmail">Email address</label>
-            <input class="form-control" id="userEmail" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="userName">User Name</label>
+            <input class="form-control" id="userName" type="text" aria-describedby="userName" placeholder="Enter User Name">
+            <div class="" id="nullUserName" style="color:red; font-weight: bold; display:none;" > Please Enter User Name</div>
           </div>
           <!-- <div class="form-group">
             <label for="userEmail">Email address</label>
             <input class="form-control" id="userEmail" type="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div> -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <label for="userPassword">Password</label>
+            <input class="form-control" id="userPassword" type="password" placeholder="Password">
+              <div class="" id="nullPassword" style="color:red; font-weight: bold; display:none;"> Please Enter the Password</div>
+
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -40,12 +46,14 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <input type="button" class="btn btn-primary btn-block" id="userLogin_Button" value="Login" onclick ="checkLogin()"/>
+          <p class="loginError" style="display:none;">Login Failed</p>
+
         </form>
-        <div class="text-center">
+        <!-- <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>
           <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -54,6 +62,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="hms.js"></script>
 </body>
 
 </html>
