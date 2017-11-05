@@ -56,7 +56,7 @@ localStorage.setItem('session', JSON.stringify(a));
 var a = [];
 function addMember(){
 
-
+$("#memberForm").appendTo(".memberList");
   //  alert("YOOOOOOOO");
     var fName= $("#fName").val();
     var lName= $("#lName").val();
@@ -65,17 +65,17 @@ function addMember(){
     var major= $("#major").val();
 	var email= $("#email").val();
     
-    var json = {fName:fName, lName:lName, universityName:universityName, year:year, major:major, email:email};
-    var receiveddata = JSON.stringify(json);
-    if(localStorage.getItem('members')){
-    		a = localStorage.getItem('members');
-    		a.push(receiveddata);
-           // alert(a);
-    }    
-    else{
-    	a=[json]
-    }
-    localStorage.setItem('members', a);
+    // var json = {fName:fName, lName:lName, universityName:universityName, year:year, major:major, email:email};
+    // var receiveddata = JSON.stringify(json);
+    // if(localStorage.getItem('members')){
+    // 		a = localStorage.getItem('members');
+    // 		a.push(receiveddata);
+    //        // alert(a);
+    // }    
+    // else{
+    // 	a=[json]
+    // }
+    // localStorage.setItem('members', a);
 
     
 
@@ -85,12 +85,12 @@ function addMember(){
     // jQuery.each(array, function() {
     //     json[this.name] = this.value || '';
     // });
-    console.log(JSON.stringify(json));
+    //console.log(JSON.stringify(json));
     
    
 
 
-    return json;
+    //return json;
    
 }
 
